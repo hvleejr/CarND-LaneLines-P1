@@ -13,9 +13,7 @@ The goals / steps of this project are the following:
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I applied a Gaussian blur for smoothing. The edges were extracted using Canny edge detection, forming an image with the edges outlined. A polygon mask was then applied to isolate the road with the left and right lanes. The HoughLines function was used to detect straight lines from the masked image. The extracted lines are finally overlaid over the original frame. An example of the processed image is shown below:
-
-![alt text](./test_images_output/SolidYellowCurve.jpg)
+My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I applied a Gaussian blur for smoothing. The edges were extracted using Canny edge detection, forming an image with the edges outlined. A polygon mask was then applied to isolate the road with the left and right lanes. The HoughLines function was used to detect straight lines from the masked image. The extracted lines are finally overlaid over the original frame. 
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by using numpy's _polyfit_ function to fit a single line over the extracted lines. Before fitting, the lines were first filtered according to their angles - the intuition is that the orientation of the road lanes must appear at a certain range of angles only. Only lines with angles between 25 and 40 degrees were kept. This step eliminates many lines coming from other objects. Next, the lines belonging to the left and right lanes were grouped together according to their slope. Finally, the endpoints of each line were used in the _polyfit_ function to generate a linear fit for the left and right lanes. 
 
