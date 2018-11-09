@@ -12,16 +12,13 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./test_images_output/SolidYellowCurve.jpg "SolidYellowCurve"
-
 ---
 
 ### Reflection
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-My pipeline consisted of 5 steps:
-
-First, I converted the images to grayscale, then I applied a Gaussian blur for smoothing. The edges were extracted using Canny edge detection, forming an image with the edges outlined. A polygon mask was then applied to isolate the road with the left and right lanes. The HoughLines function was used to detect straight lines from the masked image. The extracted lines are finally overlaid over the original frame. An example of the processed image is shown below:
+My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I applied a Gaussian blur for smoothing. The edges were extracted using Canny edge detection, forming an image with the edges outlined. A polygon mask was then applied to isolate the road with the left and right lanes. The HoughLines function was used to detect straight lines from the masked image. The extracted lines are finally overlaid over the original frame. An example of the processed image is shown below:
 
 ![alt text][image1]
 
